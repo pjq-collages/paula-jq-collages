@@ -13,7 +13,7 @@ describe("works collections", () => {
   });
 
   it("prev/next stay within the same collection", () => {
-    const first = getWorksByCollection("poster")[0];
+    const first = getWorksByCollection("poster")[0]!;
     const { prev, next } = getNeighbors(first);
     expect(prev).toBeUndefined();
     expect(next?.collection).toBe("poster");

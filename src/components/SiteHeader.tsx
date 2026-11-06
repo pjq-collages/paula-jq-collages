@@ -15,7 +15,7 @@ const NAV = [
 function useCurrentPath() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const match = pathname.match(/^\/oeuvre\/([^/]+)/);
-  if (match) {
+  if (match?.[1]) {
     const work = getWorkBySlug(decodeURIComponent(match[1]));
     if (work) return work.collection === "poster" ? "/" : `/${work.collection}`;
   }

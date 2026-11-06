@@ -136,7 +136,7 @@ export function getWorkBySlug(slug: string): Work | undefined {
 }
 
 /** Previous / next work inside the same collection (no wrap-around). */
-export function getNeighbors(work: Work): { prev?: Work; next?: Work } {
+export function getNeighbors(work: Work): { prev: Work | undefined; next: Work | undefined } {
   const list = getWorksByCollection(work.collection);
   const i = list.findIndex((w) => w.slug === work.slug);
   return { prev: i > 0 ? list[i - 1] : undefined, next: i < list.length - 1 ? list[i + 1] : undefined };
