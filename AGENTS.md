@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Artworks live only in `src/data/works.ts`; the `collection` field drives which grid page (`/`, `/carte-postale`, `/dibond`) shows each work — why: adding a work must only mean editing that one file.
+- Site is fully static (no backend, no auth, no cart) — why: it is a showcase portfolio.
