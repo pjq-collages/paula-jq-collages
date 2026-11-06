@@ -2,6 +2,7 @@
 // Chaque élément de `paragraphs` devient un paragraphe sur la page.
 
 export const about = {
+  pageTitle: "À propos",
   title: "Découvrez Paula derrière PJQ Collages",
   paragraphs: [
     "Le collage s'est imposé à moi comme une respiration.",
@@ -14,6 +15,17 @@ export const about = {
   ],
   signature: "Paula JQ",
 };
+
+// Photos affichées sous le titre de la page À propos (1 ou 2 images).
+// Déposez les fichiers dans public/images/ puis indiquez leur chemin ici.
+export const aboutImages: string[] = ["/images/a-propos-1.jpg", "/images/a-propos-2.jpg"];
+
+// Description de chaque photo (même ordre que aboutImages), lue par les
+// lecteurs d'écran et affichée si l'image ne se charge pas.
+export const aboutImagesAlt: string[] = [
+  "Table de travail de Paula vue de dessus : découpages de magazines, ciseaux, colle et pinceaux autour d'un collage en cours",
+  "Mains de Paula découpant au ciseau un fragment d'image dans un magazine, un casque audio posé à côté",
+];
 
 export const contact = {
   title: "Contact",

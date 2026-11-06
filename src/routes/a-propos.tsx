@@ -17,9 +17,30 @@ export const Route = createFileRoute("/a-propos")({
 
 function About() {
   return (
-    <section className="fade-in mx-auto max-w-2xl px-6 pt-10 md:pt-20">
-      <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{about.title}</h1>
-      <div className="mt-10 space-y-5 text-[15px] leading-relaxed">
+    <div className="fade-in">
+      <section className="mx-auto max-w-2xl px-6 pt-10 md:pt-20">
+        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{about.pageTitle}</h1>
+      </section>
+
+      {images.length > 0 && (
+        <div className="mt-10 flex w-full flex-col md:mt-14 md:flex-row">
+          {images.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt={aboutImagesAlt[i] ?? ""}
+              width={1280}
+              height={1024}
+              loading={i === 0 ? "eager" : "lazy"}
+              className="block h-[45vh] w-full min-w-0 flex-1 object-cover md:h-[60vh]"
+            />
+          ))}
+        </div>
+      )}
+
+      <section className="mx-auto max-w-2xl px-6 pt-10 md:pt-14">
+        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">{about.title}</h2>
+        <div className="mt-8 space-y-5 text-[15px] leading-relaxed">
         {about.paragraphs.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
