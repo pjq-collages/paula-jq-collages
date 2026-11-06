@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { about } from "@/data/content";
 
 export const Route = createFileRoute("/a-propos")({
   head: () => ({
@@ -17,18 +18,12 @@ export const Route = createFileRoute("/a-propos")({
 function About() {
   return (
     <section className="fade-in mx-auto max-w-2xl px-6 pt-10 md:pt-20">
-      <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">À propos</h1>
+      <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{about.title}</h1>
       <div className="mt-10 space-y-5 text-[15px] leading-relaxed">
-        <p>
-          Paula JQ est une artiste collagiste française. Elle découpe, déchire et assemble des
-          fragments de magazines anciens, de cartes postales et de planches botaniques pour composer
-          des images à la fois familières et étranges.
-        </p>
-        <p>
-          Chaque collage est d'abord réalisé à la main, au ciseau et à la colle, sur papier. Les
-          originaux sont ensuite numérisés puis imprimés en poster, en carte postale ou sur Dibond.
-        </p>
-        <p className="text-muted-foreground">Elle vit et travaille en France.</p>
+        {about.paragraphs.map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
+        <p className="text-muted-foreground">{about.signature}</p>
       </div>
     </section>
   );
