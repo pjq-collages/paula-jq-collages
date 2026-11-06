@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { about } from "@/data/content";
+import { about, aboutImages, aboutImagesAlt } from "@/data/content";
+
+// 1 ou 2 photos maximum dans le bandeau.
+const images = aboutImages.slice(0, 2);
 
 export const Route = createFileRoute("/a-propos")({
   head: () => ({
@@ -41,11 +44,12 @@ function About() {
       <section className="mx-auto max-w-2xl px-6 pt-10 md:pt-14">
         <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">{about.title}</h2>
         <div className="mt-8 space-y-5 text-[15px] leading-relaxed">
-        {about.paragraphs.map((p, i) => (
-          <p key={i}>{p}</p>
-        ))}
-        <p className="text-muted-foreground">{about.signature}</p>
-      </div>
-    </section>
+          {about.paragraphs.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+          <p className="text-muted-foreground">{about.signature}</p>
+        </div>
+      </section>
+    </div>
   );
 }
