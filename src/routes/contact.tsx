@@ -6,6 +6,7 @@ import {
   InstagramIcon,
   PinterestIcon,
 } from "@/components/SocialIcons";
+import { contact } from "@/data/content";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -24,10 +25,8 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   return (
     <section className="fade-in mx-auto max-w-2xl px-6 pt-10 md:pt-20">
-      <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">Contact</h1>
-      <p className="mt-10 text-[15px] leading-relaxed">
-        Pour toute question, une commande sur mesure ou une collaboration, vous pouvez m'écrire à :
-      </p>
+      <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">{contact.title}</h1>
+      <p className="mt-10 text-[15px] leading-relaxed">{contact.intro}</p>
       <p className="mt-4 text-lg">
         <a href={`mailto:${CONTACT_EMAIL}`} className="text-link">
           {CONTACT_EMAIL}

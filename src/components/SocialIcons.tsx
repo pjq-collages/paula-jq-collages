@@ -1,7 +1,9 @@
-// Liens à remplacer par les vrais comptes de Paula.
-export const INSTAGRAM_URL = "https://www.instagram.com/";
-export const PINTEREST_URL = "https://www.pinterest.fr/";
-export const CONTACT_EMAIL = "contact@pjqcollages.fr";
+import { contact } from "@/data/content";
+
+// Les liens se modifient dans src/data/content.ts.
+export const INSTAGRAM_URL = contact.instagramUrl;
+export const PINTEREST_URL = contact.pinterestUrl;
+export const CONTACT_EMAIL = contact.email;
 
 export function InstagramIcon({ className = "h-[18px] w-[18px]" }: { className?: string }) {
   return (

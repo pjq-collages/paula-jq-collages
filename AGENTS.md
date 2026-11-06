@@ -32,4 +32,5 @@ use the editor.
 ## Project rules
 
 - Artworks live only in `src/data/works.ts`; the `collection` field drives which grid page (`/`, `/carte-postale`, `/dibond`) shows each work — why: adding a work must only mean editing that one file.
+- Page texts and contact details (email, Instagram, Pinterest) live only in `src/data/content.ts` — why: the owner edits them there without touching components.
 - Site is fully static (no backend, no auth, no cart) — why: it is a showcase portfolio.
