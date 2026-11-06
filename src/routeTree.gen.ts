@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as CartePostaleRouteImport } from './routes/carte-postale'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DibondRouteImport } from './routes/dibond'
+import { Route as OeuvreSlugRouteImport } from './routes/oeuvre.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AProposRoute = AProposRouteImport.update({
+  id: '/a-propos',
+  path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CartePostaleRoute = CartePostaleRouteImport.update({
+  id: '/carte-postale',
+  path: '/carte-postale',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DibondRoute = DibondRouteImport.update({
+  id: '/dibond',
+  path: '/dibond',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OeuvreSlugRoute = OeuvreSlugRouteImport.update({
+  id: '/oeuvre/$slug',
+  path: '/oeuvre/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/carte-postale': typeof CartePostaleRoute
+  '/contact': typeof ContactRoute
+  '/dibond': typeof DibondRoute
+  '/oeuvre/$slug': typeof OeuvreSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/carte-postale': typeof CartePostaleRoute
+  '/contact': typeof ContactRoute
+  '/dibond': typeof DibondRoute
+  '/oeuvre/$slug': typeof OeuvreSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/carte-postale': typeof CartePostaleRoute
+  '/contact': typeof ContactRoute
+  '/dibond': typeof DibondRoute
+  '/oeuvre/$slug': typeof OeuvreSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/a-propos'
+    | '/carte-postale'
+    | '/contact'
+    | '/dibond'
+    | '/oeuvre/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/carte-postale'
+    | '/contact'
+    | '/dibond'
+    | '/oeuvre/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/carte-postale'
+    | '/contact'
+    | '/dibond'
+    | '/oeuvre/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AProposRoute: typeof AProposRoute
+  CartePostaleRoute: typeof CartePostaleRoute
+  ContactRoute: typeof ContactRoute
+  DibondRoute: typeof DibondRoute
+  OeuvreSlugRoute: typeof OeuvreSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/a-propos': {
+      id: '/a-propos'
+      path: '/a-propos'
+      fullPath: '/a-propos'
+      preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/carte-postale': {
+      id: '/carte-postale'
+      path: '/carte-postale'
+      fullPath: '/carte-postale'
+      preLoaderRoute: typeof CartePostaleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dibond': {
+      id: '/dibond'
+      path: '/dibond'
+      fullPath: '/dibond'
+      preLoaderRoute: typeof DibondRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oeuvre/$slug': {
+      id: '/oeuvre/$slug'
+      path: '/oeuvre/$slug'
+      fullPath: '/oeuvre/$slug'
+      preLoaderRoute: typeof OeuvreSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AProposRoute: AProposRoute,
+  CartePostaleRoute: CartePostaleRoute,
+  ContactRoute: ContactRoute,
+  DibondRoute: DibondRoute,
+  OeuvreSlugRoute: OeuvreSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
