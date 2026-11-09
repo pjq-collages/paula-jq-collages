@@ -24,13 +24,17 @@ jobs:
           node-version: 22
       - run: rm -f package-lock.json && npm install --legacy-peer-deps
       - run: npm run build
-        env:
-          NITRO_PRESET: github_pages
       - name: Prepare static files
         run: |
-          touch .output/public/.nojekyll
-          [ -f .output/public/404.html ] || cp .output/public/index.html .output/public/404.html
+          echo "--- Files produced ---"
           find .output/public -maxdepth 3 -not -path '*/assets/*' | sort | head -100
+          touch .output/public/.nojekyll
+          if [ -f .output/public/index.html ]; then
+            [ -f .output/public/404.html ] || cp .output/public/index.html .output/public/404.html
+          else
+            echo "NO index.html FOUND in .output/public"
+            exit 1
+          fi
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
